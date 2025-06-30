@@ -2,6 +2,7 @@
   "name": "http-backend",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "tsc -b",
@@ -10,17 +11,15 @@
   },
   "dependencies": {
     "@types/jsonwebtoken": "^9.0.9",
-    "@types/ws": "^8.18.1",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
-    "ws": "^8.18.2",
     "@repo/db": "workspace:*"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
-    "@types/express": "^5.0.1",
     "@repo/backend-common": "workspace:*",
-    "@repo/common" : "workspace:*"
+    "@repo/common": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/express": "^5.0.1"
   },
   "keywords": [],
   "author": "",

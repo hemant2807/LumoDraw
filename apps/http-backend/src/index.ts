@@ -1,10 +1,9 @@
 import express from "express";
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "@repo/backend-common/config";
-import { middleware } from "./middleware";
+import { middleware } from "./middleware.js";
 import {CreateUserSchema, SigninSchema, CreateRoomSchema} from "@repo/common/types";
 import { prismaClient } from "@repo/db/client";
-
 
 const app = express();
 
@@ -16,15 +15,13 @@ app.post("/signup", (req,res) =>  {
         })
         return;
     }
-    prismaClient.user.create({
-        
-    })
     // db call
 
     res.json({
-        userId : 123
+        userId : "123"
     })
 })
+
 app.post("/signin", (req,res) =>  {
     const data = SigninSchema.safeParse(req.body);
     if(!data.success){
@@ -33,7 +30,7 @@ app.post("/signin", (req,res) =>  {
         })
         return;
     }
-    const userId =1;
+    const userId = 1;
     const token = jwt.sign({
         userId
     }, JWT_SECRET);
@@ -53,7 +50,7 @@ app.post("/room", middleware, (req,res) =>  {
         return;
     }
     res.json({
-        roomId: 123,
+        roomId: 123
     })
 })
 
